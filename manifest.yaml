@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: teamthree-namespace
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-deployment
+  namespace: teamthree-namespace
+  labels:
+    app: flask
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+      - name: flask
+        image: thomptyler/flaskapp
+        ports:
+        - containerPort: 5000
+        imagePullPolicy: Always
+
+
+---  
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-service
+  namespace: teamthree-namespace
+spec:
+  type: LoadBalancer
+  selector:
+    app: flask
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+
+
+--- 

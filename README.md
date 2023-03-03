@@ -1,1 +1,5 @@
-# team3apps  for applications
+Jenkinsfile
+Flaskapp
+index.html
+dockerfile
+manifest.yaml
