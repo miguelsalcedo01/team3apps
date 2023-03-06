@@ -27,7 +27,7 @@ pipeline {
 
                   
                     
-                        sh 'aws eks update-kubeconfig --region us-east-1 --name team3-eks-cluster-5TNiLNnZ'
+                        sh 'aws eks update-kubeconfig --region us-east-1 --name Team3-eks-cluster'
 
 
             }
