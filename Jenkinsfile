@@ -3,6 +3,12 @@ pipeline {
 
     
     stages {
+        // stage('cleanup'){
+        //     steps{
+        //         sh 'docker rmi $(docker image ls -q)'
+
+        //     }
+            
         stage('Login, Build and Push'){
             steps {
                 script{
